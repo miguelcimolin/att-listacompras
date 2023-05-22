@@ -5,14 +5,24 @@
 }
 
 .container{
-  background-color: 'red';
+  width: 410px;
+  background-color: gray;
+  border-radius: 15px;
+  border-width: 10px;
 }
 
-.txt-input{
-  width: 250px;
-  text-align: left;
+.lista {
+  word-wrap: break-word;
+  margin-right: 20px;
 }
 
 .botaoAdd {
   margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.txt-input {
+  width: 250px;
+  text-align: left;
+  margin-left: 20px;
 }
