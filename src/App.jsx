@@ -9,6 +9,13 @@ export default function App() {
     itensLista: ''
   });
 
+  function resetaTudo() {
+    if (item.itensLista === '') {
+      alert('A lista ja esta vazia.');
+    } else {
+      setCompras([item.itensLista=''])};
+  }
+
   const [compras, setCompras] = useState([]);
 
   return (
@@ -49,12 +56,7 @@ export default function App() {
             />
             <BotaoAdd /> 
             <BsFillTrashFill className="icon-del" 
-            onClick={(event) => {
-              if (item.itensLista === '') {
-                alert('A lista ja esta vazia.')
-              } else {
-                setCompras([item.itensLista=''])}
-                }} />
+            onClick={(event) => resetaTudo()} />
           </div>
         </div>
     </form>

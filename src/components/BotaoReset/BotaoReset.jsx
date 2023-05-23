@@ -2,10 +2,15 @@ import React from "react";
 import '../buttonStyles.css'
 
 export default function BotaoReset() {
+    function resetaTudo() {
+        if (item.itensLista === '') {
+          alert('A lista ja esta vazia.');
+        } else {
+          setCompras([item.itensLista=''])};
+      }
+
     return (
-        <button
-        className="botaoReset"
-        onClick={(event) => setCompras([setItems.itensLista=''])}/>
+        resetaTudo()
     )
 }
 
