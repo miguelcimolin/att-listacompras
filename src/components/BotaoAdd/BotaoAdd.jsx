@@ -1,5 +1,5 @@
 import React from "react";
-import './buttonStyles.css'
+import '../buttonStyles.css'
 
 export default function BotaoAdd() {
     return (

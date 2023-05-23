@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import BotaoAdd from './components/BotaoAdd'
+import { BsFillTrashFill } from "react-icons/bs";
+import BotaoAdd from './components/BotaoAdd/BotaoAdd'
+import BotaoReset from './components/BotaoReset/BotaoReset'
 
 export default function App() {
   const [item, setItems] = useState({
@@ -43,9 +45,16 @@ export default function App() {
             className="txt-input" 
             id="nome" 
             value={item.itensLista} 
-            onChange={(event) => setItems({...item, itensLista: event.target.value})}
+            onChange={(event) => setItems({itensLista: event.target.value})}
             />
-            <BotaoAdd />
+            <BotaoAdd /> 
+            <BsFillTrashFill className="icon-del" 
+            onClick={(event) => {
+              if (item.itensLista === '') {
+                alert('A lista ja esta vazia.')
+              } else {
+                setCompras([item.itensLista=''])}
+                }} />
           </div>
         </div>
     </form>

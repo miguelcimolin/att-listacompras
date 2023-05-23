@@ -5,7 +5,7 @@
 }
 
 .container{
-  width: 410px;
+  width: 420px;
   background-color: gray;
   border-radius: 15px;
   border-width: 10px;
@@ -22,7 +22,11 @@
 }
 
 .txt-input {
-  width: 250px;
+  width: 230px;
   text-align: left;
   margin-left: 20px;
+}
+
+.icon-del {
+  cursor: pointer;
 }
