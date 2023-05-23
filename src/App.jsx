@@ -1,20 +1,14 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './App.css'
-import { BsFillTrashFill } from "react-icons/bs";
 import BotaoAdd from './components/BotaoAdd/BotaoAdd'
 import BotaoReset from './components/BotaoReset/BotaoReset'
 
 export default function App() {
-  const [item, setItems] = useState({
-    itensLista: ''
+  const [item, setItem] = useState({
+    itemLista: ''
   });
 
-  function resetaTudo() {
-    if (item.itensLista === '') {
-      alert('A lista ja esta vazia.');
-    } else {
-      setCompras([item.itensLista=''])};
-  }
+  const listaRef = useRef()
 
   const [compras, setCompras] = useState([]);
 
@@ -23,14 +17,13 @@ export default function App() {
       action="#"
       method="post"
       onSubmit={(event) => { 
-        if (item.itensLista != ''){
+        if (item.itemLista != ''){
           event.preventDefault();
           setCompras([...compras, item]);
+          setItem({itemLista: ''})
 
-          setTimeout(function() {
-            let scrollAutomatico = rolagem.value
-            scrollAutomatico.scrollTop = scrollAutomatico.scrollHeight;
-        })}
+            listaRef.current.scrollTop = listaRef.current.scrollHeight;
+        }    
         else {
           alert('Palavra invalida.')
         }
@@ -38,10 +31,10 @@ export default function App() {
     >
       <div className="container">
         <h1>Lista de Compras</h1>
-          <div className="lista">
+          <div className="lista" ref={listaRef}>
             <ul>
               {compras.map((compra) =>(
-              <li>{compra.itensLista}</li>
+              <li>{compra.itemLista}</li>
               ))}
             </ul>
           </div>
@@ -51,12 +44,11 @@ export default function App() {
             placeholder='Digite aqui!'
             className="txt-input" 
             id="nome" 
-            value={item.itensLista} 
-            onChange={(event) => setItems({itensLista: event.target.value})}
+            value={item.itemLista} 
+            onChange={(event) => setItem({itemLista: event.target.value})}
             />
             <BotaoAdd /> 
-            <BsFillTrashFill className="icon-del" 
-            onClick={(event) => resetaTudo()} />
+            <BotaoReset  item={item} setCompras={setCompras} setItem={setItem}/>
           </div>
         </div>
     </form>
